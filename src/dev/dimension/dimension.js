@@ -1,4 +1,4 @@
-var dimension = new Dimensions.CustomDimension("CustomDimension", 33);
+var dimension = new Dimensions.CustomDimension("Mysterious Forest", 1837);
 // Some additional dimension setup, 
 // e.g. setting some of the environment colors:
 dimension.setSunsetColor(0.2, 1, 0.7);
@@ -13,11 +13,15 @@ Callback.addCallback("ItemUse", function(coords, item) {
 var generator = Dimensions.newGenerator({
     layers: [
         {
-            minY: 0, maxY: 64,
-            material: {base: 8}, 
+            minY: 0, maxY: 1,
+            material: {base: 7}, 
         },
         {
-            minY: 0, maxY: 128, 
+            minY: 2, maxY: 56,
+            material: {base: 1},
+        },
+        {
+            minY: 54, maxY: 64, 
             yConversion: [[0, 1], [1, -1]], 
             material: {base: 2, cover: 2}, 
             noise: {
@@ -25,26 +29,14 @@ var generator = Dimensions.newGenerator({
             }
         },
         {
-            minY: 0, maxY: 180, 
+            minY: 54, maxY: 96, 
             yConversion: [[0, 0.5], [0.6, -0.5], [1, -1]], 
-            material: {base: 1}, 
+            material: {base: 1, cover: 2}, 
             noise: {
                 octaves: {count: 2, scale: 70, seed: 100}
             },
             heightmap: {
-                octaves: {count: 3, scale: 600},
-                conversion: [[0, 0.5], [1, -0.5]]
-            }
-        },
-        {
-            minY: 0, maxY: 180, 
-            yConversion: [[0, 0.5], [0.6, -0.5], [1, -1]], 
-            material: {base: 2}, 
-            noise: {
-                octaves: {count: 2, scale: 70, seed: 100}
-            },
-            heightmap: {
-                octaves: {count: 3, scale: 600},
+                octaves: {count: 3, scale: 450},
                 conversion: [[0, 0.5], [1, -0.5]]
             }
         }
