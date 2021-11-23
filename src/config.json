@@ -1,3 +1,10 @@
 {
-  "enabled":true
+  "enabled": true,
+  "iron_spawner_config": {
+    "item_drop_time_lvl_1": 3,
+    "item_drop_time_lvl_2": 2,
+    "item_drop_time_lvl_3": 1,
+    "price_for_upgrade_to_lvl_2": 20,
+    "price_for_upgrade_to_lvl_3": 35
+  }
 }

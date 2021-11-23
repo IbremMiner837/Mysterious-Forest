@@ -1,0 +1,49 @@
+{
+    "description": "Настройки конфигурации мода",
+    "properties": {
+    
+        "iron_spawner_config": {
+            "name": {
+                "en": "Some setting",
+                "ru": "Конфигурация спавнера железа"
+            },
+            "collapsible": false,
+            "displayIf": "enabled"
+        }, "iron_spawner_config.item_drop_time_lvl_1": {
+            "name": {
+                "en": "Some setting",
+                "ru": "Время выпадения железа в секундах (Уровень 1)"
+            },
+            "index": 0,
+            "type": "SeekBar", "min": 1, "max": 35
+        }, "iron_spawner_config.item_drop_time_lvl_2": {
+            "name": {
+                "en": "Some setting",
+                "ru": "Время выпадения железа в секундах (Уровень 2)"
+            },
+            "index": 0,
+            "type": "SeekBar", "min": 1, "max": 35
+        }, "iron_spawner_config.item_drop_time_lvl_3": {
+            "name": {
+                "en": "Some setting",
+                "ru": "Время выпадения железа в секундах (Уровень 3)"
+            },
+            "index": 0,
+            "type": "SeekBar", "min": 1, "max": 35
+        }, "iron_spawner_config.price_for_upgrade_to_lvl_2": {
+            "name": {
+                "en": "Some setting",
+                "ru": "Цена для прокачки до 2 уровня"
+            },
+            "index": 0,
+            "type": "SeekBar", "min": 1, "max": 64
+        }, "iron_spawner_config.price_for_upgrade_to_lvl_3": {
+            "name": {
+                "en": "Some setting",
+                "ru": "Цена для прокачки до 3 уровня"
+            },
+            "index": 0,
+            "type": "SeekBar", "min": 1, "max": 64
+        }
+    }
+}
