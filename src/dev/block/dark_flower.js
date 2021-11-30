@@ -9,7 +9,7 @@ Block.createBlock("dark_flower", [
             ["planks", 0], ["planks", 0]
         ], inCreative: true
     }
-]);
+]); 
 
 TileEntity.registerPrototype(BlockID.dark_flower, {
     defaultValues: {
