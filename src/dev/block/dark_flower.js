@@ -1,7 +1,7 @@
 IDRegistry.genBlockID("dark_flower");
 
 Block.createSpecialType("Dark_Flower", {
-    solid: false,
+    solid: true,
     rendertype: 1,
     lightlevel: 3
 });
@@ -19,7 +19,10 @@ Block.createBlock("dark_flower", [
 
 TileEntity.registerPrototype(BlockID.dark_flower, {
     defaultValues: {
-        particleLoopTime: 45
+        particleLoopTime: 45,
+        lightningBoltSpawnTime: 45,
+        lightningBoltSpawnPos: 0,
+        portal: false
     },
 
     tick: function() {
@@ -33,7 +36,31 @@ TileEntity.registerPrototype(BlockID.dark_flower, {
         && World.getBlockID(this.x - 1, this.y, this.z + 1) == 50
         && World.getBlockID(this.x - 1, this.y, this.z - 1) == 50
         && World.getBlockID(this.x + 1, this.y, this.z - 1) == 50) {
-            Game.tipMessage("Еба ты смог...")
+
+            this.data.portal = true;
+
+        }
+
+        if(this.data.portal == true) {
+            this.data.lightningBoltSpawnTime--;
+
+            if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 0) {
+                this.data.lightningBoltSpawnTime = 45;
+                this.data.lightningBoltSpawnPos++;
+                Entity.spawn(this.x + 1, this.y, this.z + 1, 83);
+            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 0) {
+                this.data.lightningBoltSpawnTime = 45;
+                this.data.lightningBoltSpawnPos++;
+                Entity.spawn(this.x - 1, this.y, this.z + 1, 83);
+            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 0) {
+                this.data.lightningBoltSpawnTime = 45;
+                this.data.lightningBoltSpawnPos++;
+                Entity.spawn(this.x - 1, this.y, this.z - 1, 83);
+            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 0) {
+                this.data.lightningBoltSpawnTime = 45;
+                this.data.lightningBoltSpawnPos++;
+                Entity.spawn(this.x + 1, this.y, this.z - 1, 83);
+            }
         }
 
         if(this.data.particleLoopTime <= 0) {
