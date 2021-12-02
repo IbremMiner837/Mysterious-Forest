@@ -20,7 +20,7 @@ Block.createBlock("dark_flower", [
 TileEntity.registerPrototype(BlockID.dark_flower, {
     defaultValues: {
         particleLoopTime: 45,
-        lightningBoltSpawnTime: 45,
+        lightningBoltSpawnTime: 35,
         lightningBoltSpawnPos: 0,
         portal: false
     },
@@ -39,27 +39,32 @@ TileEntity.registerPrototype(BlockID.dark_flower, {
 
             this.data.portal = true;
 
+        } else {
+            this.data.portal = false;
+            this.data.lightningBoltSpawnPos = 0;
+            this.data.lightningBoltSpawnTime = 35;
         }
 
         if(this.data.portal == true) {
             this.data.lightningBoltSpawnTime--;
 
             if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 0) {
-                this.data.lightningBoltSpawnTime = 45;
+                this.data.lightningBoltSpawnTime = 35;
                 this.data.lightningBoltSpawnPos++;
-                Entity.spawn(this.x + 1, this.y, this.z + 1, 83);
-            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 0) {
-                this.data.lightningBoltSpawnTime = 45;
+                Entity.spawn(this.x + 1, this.y + 0.5, this.z + 1, 93);
+            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 1) {
+                this.data.lightningBoltSpawnTime = 35;
                 this.data.lightningBoltSpawnPos++;
-                Entity.spawn(this.x - 1, this.y, this.z + 1, 83);
-            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 0) {
-                this.data.lightningBoltSpawnTime = 45;
+                Entity.spawn(this.x - 1, this.y + 0.5, this.z + 1, 93);
+            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 2) {
+                this.data.lightningBoltSpawnTime = 35;
                 this.data.lightningBoltSpawnPos++;
-                Entity.spawn(this.x - 1, this.y, this.z - 1, 83);
-            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 0) {
-                this.data.lightningBoltSpawnTime = 45;
+                Entity.spawn(this.x - 1, this.y + 0.5, this.z - 1, 93);
+            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 3) {
+                this.data.lightningBoltSpawnTime = 35;
                 this.data.lightningBoltSpawnPos++;
-                Entity.spawn(this.x + 1, this.y, this.z - 1, 83);
+                this.data.portal = flase;
+                Entity.spawn(this.x + 1, this.y + 0.5, this.z - 1, 93);
             }
         }
 
