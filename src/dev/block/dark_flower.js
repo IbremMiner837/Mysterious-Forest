@@ -63,7 +63,7 @@ TileEntity.registerPrototype(BlockID.dark_flower, {
             } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 3) {
                 this.data.lightningBoltSpawnTime = 35;
                 this.data.lightningBoltSpawnPos++;
-                this.data.portal = flase;
+                this.data.portal = false;
                 Entity.spawn(this.x + 1, this.y + 0.5, this.z - 1, 93);
             }
         }
