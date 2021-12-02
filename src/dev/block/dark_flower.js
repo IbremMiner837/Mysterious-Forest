@@ -52,19 +52,23 @@ TileEntity.registerPrototype(BlockID.dark_flower, {
                 this.data.lightningBoltSpawnTime = 35;
                 this.data.lightningBoltSpawnPos++;
                 Entity.spawn(this.x + 1, this.y + 0.5, this.z + 1, 93);
+                World.setBlock(this.x + 1, this.y, this.z + 1, -279, 0);
             } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 1) {
                 this.data.lightningBoltSpawnTime = 35;
                 this.data.lightningBoltSpawnPos++;
                 Entity.spawn(this.x - 1, this.y + 0.5, this.z + 1, 93);
+                World.setBlock(this.x - 1, this.y, this.z + 1, -279, 0);
             } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 2) {
                 this.data.lightningBoltSpawnTime = 35;
                 this.data.lightningBoltSpawnPos++;
                 Entity.spawn(this.x - 1, this.y + 0.5, this.z - 1, 93);
+                World.setBlock(this.x - 1, this.y, this.z - 1, -279, 0);
             } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 3) {
                 this.data.lightningBoltSpawnTime = 35;
                 this.data.lightningBoltSpawnPos++;
                 this.data.portal = false;
                 Entity.spawn(this.x + 1, this.y + 0.5, this.z - 1, 93);
+                World.setBlock(this.x + 1, this.y, this.z - 1, -279, 0);
             }
         }
 
