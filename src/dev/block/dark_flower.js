@@ -21,54 +21,35 @@ TileEntity.registerPrototype(BlockID.dark_flower, {
     defaultValues: {
         particleLoopTime: 45,
         lightningBoltSpawnTime: 35,
-        lightningBoltSpawnPos: 0,
         portal: false
     },
 
     tick: function() {
         this.data.particleLoopTime--;
 
-        if(World.getBlockID(this.x + 1, this.y - 1, this.z) == 88
-        && World.getBlockID(this.x, this.y - 1, this.z + 1) == 88
-        && World.getBlockID(this.x - 1, this.y - 1, this.z) == 88
-        && World.getBlockID(this.x, this.y - 1, this.z - 1) == 88
-        && World.getBlockID(this.x + 1, this.y, this.z + 1) == 50
-        && World.getBlockID(this.x - 1, this.y, this.z + 1) == 50
-        && World.getBlockID(this.x - 1, this.y, this.z - 1) == 50
-        && World.getBlockID(this.x + 1, this.y, this.z - 1) == 50) {
+        if(World.getBlockID(this.x + 1, this.y - 1, this.z + 1) == 88
+        && World.getBlockID(this.x - 1, this.y - 1, this.z + 1) == 88
+        && World.getBlockID(this.x - 1, this.y - 1, this.z - 1) == 88
+        && World.getBlockID(this.x + 1, this.y - 1, this.z - 1) == 88
+        && World.getBlockID(this.x + 1, this.y - 1, this.z) == VanillaBlockID.soul_soil
+        && World.getBlockID(this.x, this.y - 1, this.z + 1) == VanillaBlockID.soul_soil
+        && World.getBlockID(this.x - 1, this.y - 1, this.z) == VanillaBlockID.soul_soil
+        && World.getBlockID(this.x, this.y - 1, this.z - 1) == VanillaBlockID.soul_soil) {
 
             this.data.portal = true;
 
         } else {
             this.data.portal = false;
-            this.data.lightningBoltSpawnPos = 0;
             this.data.lightningBoltSpawnTime = 35;
         }
 
         if(this.data.portal == true) {
             this.data.lightningBoltSpawnTime--;
 
-            if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 0) {
+            if(this.data.lightningBoltSpawnTime <= 0) {
                 this.data.lightningBoltSpawnTime = 35;
-                this.data.lightningBoltSpawnPos++;
-                Entity.spawn(this.x + 1, this.y + 0.5, this.z + 1, 93);
-                World.setBlock(this.x + 1, this.y, this.z + 1, -279, 0);
-            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 1) {
-                this.data.lightningBoltSpawnTime = 35;
-                this.data.lightningBoltSpawnPos++;
-                Entity.spawn(this.x - 1, this.y + 0.5, this.z + 1, 93);
-                World.setBlock(this.x - 1, this.y, this.z + 1, -279, 0);
-            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 2) {
-                this.data.lightningBoltSpawnTime = 35;
-                this.data.lightningBoltSpawnPos++;
-                Entity.spawn(this.x - 1, this.y + 0.5, this.z - 1, 93);
-                World.setBlock(this.x - 1, this.y, this.z - 1, -279, 0);
-            } if(this.data.lightningBoltSpawnTime <= 0 && this.data.lightningBoltSpawnPos == 3) {
-                this.data.lightningBoltSpawnTime = 35;
-                this.data.lightningBoltSpawnPos++;
                 this.data.portal = false;
-                Entity.spawn(this.x + 1, this.y + 0.5, this.z - 1, 93);
-                World.setBlock(this.x + 1, this.y, this.z - 1, -279, 0);
+                Entity.spawn(this.x, this.y + 0.1, this.z, 93);
             }
         }
 

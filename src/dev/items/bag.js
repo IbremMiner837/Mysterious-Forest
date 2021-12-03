@@ -25,9 +25,5 @@ Callback.addCallback("ItemUse", function(coords, item) {
     && World.getBlockID(coords.x, coords.y, coords.z) == 38) {
         Player.decreaseCarriedItem(1);
         Player.addItemToInventory(ItemID.pollen_bag, 1);
-    } else if (item.id == ItemID.bag && World.getBlockID(coords.x, coords.y, coords.z) == 38
-    && World.getBlockData(coords.x, coords.y, coords.z) == 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8) {
-        Player.decreaseCarriedItem(1);
-        Player.addItemToInventory(ItemID.pollen_bag, 1);
     }
 });
