@@ -3,6 +3,7 @@
 
 # nocheck
 
+LibImport.js
 dimension/dimension.js
 items/bag.js
 block/dark_flower.js

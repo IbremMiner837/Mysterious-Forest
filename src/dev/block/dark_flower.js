@@ -23,11 +23,14 @@ TileEntity.registerPrototype(BlockID.dark_flower, {
     defaultValues: {
         particleLoopTime: 35,
         lightningBoltSpawnTime: 35,
-        portal: false
+        portal: false,
+        portalisActive: false
     },
 
     tick: function() {
         this.data.particleLoopTime--;
+
+        var player = Player.get();
 
         if(World.getBlockID(this.x + 1, this.y - 1, this.z + 1) == 88
         && World.getBlockID(this.x - 1, this.y - 1, this.z + 1) == 88
@@ -39,7 +42,6 @@ TileEntity.registerPrototype(BlockID.dark_flower, {
         && World.getBlockID(this.x, this.y - 1, this.z - 1) == 533) {
 
             this.data.portal = true;
-            Game.message("Zaebumba");
 
         } else {
             this.data.portal = false;
@@ -58,7 +60,7 @@ TileEntity.registerPrototype(BlockID.dark_flower, {
 
         if(this.data.particleLoopTime <= 0) {
             this.data.particleLoopTime = 35;
-            Particles.addFarParticle(20, this.x + 0.5, this.y + 1.5, this.z + 0.5, 0, 0, 0, 0);
+            Particles.addFarParticle(20, this.x + 0.5, this.y + 1.5, this.z + 0.5, 0.1, 0.1, 0.1, 0);
         }
     },
 
